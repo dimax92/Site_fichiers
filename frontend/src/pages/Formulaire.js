@@ -51,13 +51,13 @@ const Formulaire = () => {
     }
 
     function envoiDonnees(){
-        axios.get("http://127.0.0.1:8000/api/profile", {
+        axios.get("https://pdfou.com/backend/public/api/profile", {
             headers: {
                 'Authorization': "Bearer "+cookies.token
               }
         })
           .then(function (response) {
-            axios.post("http://127.0.0.1:8000/api/creationfichiers/"+response.data, creationDonneesFichier(response.data), {
+            axios.post("https://pdfou.com/backend/public/api/creationfichiers/"+response.data, creationDonneesFichier(response.data), {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Authorization': "Bearer "+cookies.token

@@ -21,13 +21,13 @@ const Profil = () => {
     }
 
     function suppressionProfil(){
-        axios.get("http://127.0.0.1:8000/api/profile", {
+        axios.get("https://pdfou.com/backend/public/api/profile", {
             headers: {
                 'Authorization': "Bearer "+cookies.token
               }
         })
         .then((result)=>{
-            axios.post("http://127.0.0.1:8000/api/suppressionprofil/"+result.data, {
+            axios.post("https://pdfou.com/backend/public/api/suppressionprofil/"+result.data, {
                 data: {
                     popo: "salut"
                 }
@@ -38,7 +38,7 @@ const Profil = () => {
             })
               .then(function (response) {
                 setReponse(<p className="messageValidation">Desinscription reussi</p>);
-                document.location.href='http://localhost:3000/';
+                document.location.href='https://pdfou.com/';
               })
               .catch(function (error) {
                 setReponse(<p className="messageErreur">Echec desinscription</p>)
@@ -49,7 +49,7 @@ const Profil = () => {
 
 
     function deconnexion(){
-        axios.post("http://127.0.0.1:8000/api/logout",{
+        axios.post("https://pdfou.com/backend/public/api/logout",{
             data: {
                 nom: "popo"
             }}, {
@@ -88,13 +88,13 @@ const Profil = () => {
     }
 
     function envoiDonneesModification(nomClass, nom){
-        axios.get("http://127.0.0.1:8000/api/profile", {
+        axios.get("https://pdfou.com/backend/public/api/profile", {
             headers: {
                 'Authorization': "Bearer "+cookies.token
               }
         })
         .then((response)=>{
-            axios.post("http://127.0.0.1:8000/api/updateprofil/"+response.data, modificationDonnees(nomClass, nom), {
+            axios.post("https://pdfou.com/backend/public/api/updateprofil/"+response.data, modificationDonnees(nomClass, nom), {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Authorization': "Bearer "+cookies.token

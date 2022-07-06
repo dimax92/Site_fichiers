@@ -25,7 +25,7 @@ const Recherche = () => {
     };
 
     function rechercheDonnees(recherche){
-        axios.post("http://127.0.0.1:8000/api/search/-"+recherche)
+        axios.post("https://pdfou.com/backend/public/api/search/-"+recherche)
         .then((result)=>{
             setData(result.data);
         })

@@ -19,7 +19,7 @@ const Modification = () => {
     let { id } = useParams();
 
     function recevoirDonnees(id){
-        axios.get("http://127.0.0.1:8000/api/fichiers/"+id)
+        axios.get("https://pdfou.com/backend/public/api/fichiers/"+id)
         .then((result)=>{
             setNom(result.data.nom);
             setDescription(result.data.description);
@@ -72,13 +72,13 @@ const Modification = () => {
     }
 
     function envoiDonneesModification(id){
-        axios.get("http://127.0.0.1:8000/api/profile", {
+        axios.get("https://pdfou.com/backend/public/api/profile", {
             headers: {
                 'Authorization': "Bearer "+cookies.token
               }
         })
         .then(function (response) {
-            axios.post("http://127.0.0.1:8000/api/update/"+id, creationDonnees(response.data), {
+            axios.post("https://pdfou.com/backend/public/api/update/"+id, creationDonnees(response.data), {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Authorization': "Bearer "+cookies.token

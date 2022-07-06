@@ -48,11 +48,11 @@ const Inscription = () => {
     }
 
     function envoiDonnees(){
-        axios.post("http://127.0.0.1:8000/api/register", creationDonnees())
+        axios.post("https://pdfou.com/backend/public/api/register", creationDonnees())
           .then(function (response) {
               setCookie('token', response.data.access_token,[]);
               messageValidation();
-              document.location.href='http://localhost:3000/';
+              document.location.href='https://pdfou.com/';
           })
           .catch(function (error) {
             messageErreur(error);

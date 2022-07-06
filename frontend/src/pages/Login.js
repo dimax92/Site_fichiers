@@ -19,11 +19,11 @@ const Login = () => {
     }
 
     function envoiDonnees(){
-        axios.post("http://127.0.0.1:8000/api/login", creationDonnees())
+        axios.post("https://pdfou.com/backend/public/api/login", creationDonnees())
           .then(function (response) {
               setCookie('token', response.data.access_token,[]);
               setReponse(<p className="messageValidation">{response.data.message}</p>);
-              document.location.href='http://localhost:3000/';
+              document.location.href='https://pdfou.com/';
           })
           .catch(function (error) {
             setReponse(<p className="messageErreur">{error.response.data.message}</p>)

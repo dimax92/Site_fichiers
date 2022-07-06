@@ -10,13 +10,13 @@ const MesFichiers = () => {
     const[reponse,setReponse] = useState();
 
     function recevoirDonnees(){
-        axios.get("http://127.0.0.1:8000/api/profile", {
+        axios.get("https://pdfou.com/backend/public/api/profile", {
             headers: {
                 'Authorization': "Bearer "+cookies.token
               }
         })
         .then((response)=>{
-            axios.get("http://127.0.0.1:8000/api/mesfichiers/"+response.data, {
+            axios.get("https://pdfou.com/backend/public/api/mesfichiers/"+response.data, {
                 headers: {
                     'Authorization': "Bearer "+cookies.token
                   }
@@ -40,13 +40,13 @@ const MesFichiers = () => {
     }
 
     function suppressionDonnees(id){
-        axios.get("http://127.0.0.1:8000/api/profile", {
+        axios.get("https://pdfou.com/backend/public/api/profile", {
             headers: {
                 'Authorization': "Bearer "+cookies.token
               }
         })
         .then((response)=>{
-            axios.post("http://127.0.0.1:8000/api/destroy/"+id, creationDonneesSuppression(response.data), {
+            axios.post("https://pdfou.com/backend/public/api/destroy/"+id, creationDonneesSuppression(response.data), {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Authorization': "Bearer "+cookies.token
@@ -54,7 +54,7 @@ const MesFichiers = () => {
             })
             .then(function (result) {
                 setReponse(<p className="messageValidation">Suppression fichier reussi</p>);
-                document.location.href='http://localhost:3000/MesFichiers';
+                document.location.href='https://pdfou.com/MesFichiers';
             })
             .catch(function (error) {
                 setReponse(<p className="messageErreur">Echec suppression Fichier</p>);

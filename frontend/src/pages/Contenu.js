@@ -11,7 +11,7 @@ const Contenu = () => {
     let { id } = useParams();
 
     function recevoirDonnees(id){
-        axios.get("http://127.0.0.1:8000/api/fichiers/"+id)
+        axios.get("https://pdfou.com/backend/public/api/fichiers/"+id)
         .then((result)=>{
             setNomFichier(result.data.nomfichier);
             setNom(result.data.nom);
@@ -28,11 +28,11 @@ const Contenu = () => {
         <div className="divContenu">
             <Navigation/>
             <h1>{nom}</h1>
-            <iframe src={"http://127.0.0.1:8000/api/fichier/"+id} height="200" width="300"></iframe>
+            <iframe src={"https://pdfou.com/backend/public/storage/app/fichiers/"+nomFichier} height="200" width="300"></iframe>
             <h2>Description</h2>
             <p>{description}</p>
             <button onClick={()=>{
-                document.location.href="http://127.0.0.1:8000/api/download/"+id;
+                document.location.href="https://pdfou.com/backend/public/api/download/"+id;
             }}>Telecharger</button>
         </div>
     )
