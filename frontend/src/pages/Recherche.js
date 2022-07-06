@@ -6,7 +6,7 @@ const Recherche = () => {
     const[data, setData] = useState([]);
 
     function recevoirDonnees(){
-        axios.get("http://127.0.0.1:8000/api/fichiers")
+        axios.get("https://pdfou.com/backend/public/api/fichiers")
         .then((result)=>{
             setData(result.data);
         })

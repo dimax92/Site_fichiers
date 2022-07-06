@@ -28,7 +28,7 @@ const Contenu = () => {
         <div className="divContenu">
             <Navigation/>
             <h1>{nom}</h1>
-            <iframe src={"https://pdfou.com/backend/public/storage/app/fichiers/"+nomFichier} height="200" width="300"></iframe>
+            <iframe src={"https://pdfou.com/backend/storage/app/fichiers/"+nomFichier} height="200" width="300"></iframe>
             <h2>Description</h2>
             <p>{description}</p>
             <button onClick={()=>{
